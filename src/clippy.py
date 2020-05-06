@@ -1,5 +1,7 @@
 from tkinter import Tk, Frame, BOTH, Menu, TclError, Label, RAISED, SUNKEN, SOLID, messagebox
 import pyperclip
+import pyautogui
+import time
 
 class Clippy(Frame):
     def __init__(self, parent=None):
@@ -117,7 +119,11 @@ class Clippy(Frame):
             print("copied ", self.clipboardContentMapping[label["text"]])
         # self.clipboard_clear()
         # self.clipboard_append(self.clipboardContentMapping[label["text"]])
-        pyperclip.copy(self.clipboardContentMapping[label["text"]])
+        text_copied = self.clipboardContentMapping[label["text"]]
+        pyperclip.copy(text_copied)
+        time.sleep(1)
+        self.parent.wm_state('iconic')
+        pyautogui.typewrite(text_copied)
         label["relief"] = SUNKEN
         labelElem["clickCount"] = 1
         self.after(ms=100, func=lambda label=label: self.animateClick(label))

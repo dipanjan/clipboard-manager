@@ -21,7 +21,7 @@ setup(
     keywords=['clipboard', 'clipboard-manager'],
     app=APP,
     data_files=DATA_FILES,
-    install_requires=["pyperclip>=1.6.4", "py2app==0.13"],
+    install_requires=["pyperclip>=1.6.4", "py2app==0.13", "pyautogui==0.9.50"],
     options={'py2app': OPTIONS},
     setup_requires=['py2app'],
     test_suite='test',
