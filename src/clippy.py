@@ -1,7 +1,8 @@
 from tkinter import Tk, Frame, BOTH, Menu, TclError, Label, RAISED, SUNKEN, SOLID, messagebox
 import pyperclip
-import pyautogui
+# import pyautogui
 import time
+import subprocess
 
 class Clippy(Frame):
     def __init__(self, parent=None):
@@ -123,7 +124,8 @@ class Clippy(Frame):
         pyperclip.copy(text_copied)
         time.sleep(1)
         self.parent.wm_state('iconic')
-        pyautogui.typewrite(text_copied)
+        # pyautogui.typewrite(text_copied)
+        subprocess.call(['ydotool', 'type', text_copied])
         label["relief"] = SUNKEN
         labelElem["clickCount"] = 1
         self.after(ms=100, func=lambda label=label: self.animateClick(label))

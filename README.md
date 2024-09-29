@@ -18,6 +18,7 @@ I have published an article on Medium [here](https://medium.com/@prashantgupta24
 - Clone the repo
 - Use [virtualenv](https://docs.python-guide.org/dev/virtualenvs/#lower-level-virtualenv) to create a virtual env with `python>=3.6`
 - Run `python setup.py install` (it will install all the required dependencies)
+- Run `setup.sh`
 - Run `python src/clippy.py`
 
 ## How to run tests
