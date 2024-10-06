@@ -1,6 +1,5 @@
-from tkinter import Tk, Frame, BOTH, Menu, TclError, Label, RAISED, SUNKEN, SOLID, messagebox
+from tkinter import Tk, Frame, BOTH, Menu, Label, RAISED, SUNKEN, SOLID, messagebox
 import pyperclip
-# import pyautogui
 import time
 import subprocess
 
@@ -124,7 +123,6 @@ class Clippy(Frame):
         pyperclip.copy(text_copied)
         time.sleep(1)
         self.parent.wm_state('iconic')
-        # pyautogui.typewrite(text_copied)
         subprocess.call(['ydotool', 'type', text_copied])
         label["relief"] = SUNKEN
         labelElem["clickCount"] = 1
@@ -150,9 +148,12 @@ class Clippy(Frame):
         else:
             self.parent.attributes("-topmost", 0)
 
-if __name__ == '__main__':
+def main():
     root = Tk()
-    Clippy = Clippy(root)
-    Clippy.createLayout()
-    Clippy.updateClipboard()
-    Clippy.mainloop()
+    clippy = Clippy(root)
+    clippy.createLayout()
+    clippy.updateClipboard()
+    clippy.mainloop()
+
+if __name__ == '__main__':
+    main()
